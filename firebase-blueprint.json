@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Application user profile",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "role"]
+    },
+    "Site": {
+      "title": "Historical Site",
+      "description": "Historical site or museum",
+      "type": "object",
+      "properties": {
+        "name": { "type": "object" },
+        "description": { "type": "object" },
+        "basePrice": { "type": "number" },
+        "studentDiscount": { "type": "number" },
+        "childDiscount": { "type": "number" },
+        "coordinates": { "type": "object" },
+        "governorateId": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "virtualTourUrl": { "type": "string" }
+      },
+      "required": ["name", "basePrice"]
+    },
+    "Booking": {
+      "title": "Ticket Booking",
+      "description": "Booking record for a site",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "siteId": { "type": "string" },
+        "siteName": { "type": "string" },
+        "bookingDate": { "type": "string" },
+        "category": { "type": "string", "enum": ["adult", "student", "child"] },
+        "price": { "type": "number" },
+        "qrCode": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "siteId", "bookingDate", "category", "price"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "/sites/{siteId}": {
+      "schema": "Site",
+      "description": "Museums and historical sites"
+    },
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Entry ticket bookings"
+    }
+  }
+}

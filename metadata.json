@@ -1,0 +1,13 @@
+{
+  "name": "الخالدون - Egypt Eternals",
+  "description": "منصة سياحية متكاملة لحجز تذاكر المعالم الأثرية المصرية، استكشاف التاريخ بتقنية 2.5D، وإدارة الرحلات السياحية.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "multilingual",
+    "interactive-maps",
+    "virtual-tours"
+  ]
+}
